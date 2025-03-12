@@ -1,0 +1,388 @@
+/*
+-------------------------------------
+  Color schemes
+-------------------------------------
+*/
+:root {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+
+  --side-padding: max(2rem, calc((100% - 110em)/2));
+  --default-radius: 6px;
+
+  --flexoki-black:           #100F0F;
+  --flexoki-paper:           #FFFCF0;
+
+  --flexoki-cyan-900:        #122F2C;
+
+  --flexoki-blue-50:         #E1ECEB;
+  --flexoki-blue-100:        #C6DDE8;
+  --flexoki-blue-150:        #ABCFE2;
+  --flexoki-blue-200:        #92BFDB;
+  --flexoki-blue-300:        #66A0C8;
+  --flexoki-blue-400:        #4385BE;
+  --flexoki-blue-500:        #3171B2;
+  --flexoki-blue-600:        #205EA6;
+  --flexoki-blue-700:        #1A4F8C;
+  --flexoki-blue-800:        #163B66;
+  --flexoki-blue-850:        #133051;
+  --flexoki-blue-900:        #12253B;
+  --flexoki-blue-950:        #101A24;
+
+  --input-background: background-color: light-dark(var(--flexoki-blue-50), var(--flexoki-blue-200));
+  --input-border: 1px solid light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
+}
+
+
+/*
+-------------------------------------
+ Josh W Comeaus˚ s CSS Reset
+ https://www.joshwcomeau.com/css/custom-css-reset/
+-------------------------------------
+*/
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+body { line-height: 1.5; -webkit-font-smoothing: antialiased;}
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+p { text-wrap: pretty; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+#root, #__next { isolation: isolate; }
+
+
+
+/*
+-------------------------------------
+ This Project
+-------------------------------------
+*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: light-dark(var(--flexoki-paper), var(--flexoki-cyan-900));
+    color: light-dark(var(--flexoki-cyan-900), var(--flexoki-paper));
+
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+}
+
+
+a {
+  color: light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
+}
+a:visited {
+  color: light-dark(var(--flexoki-blue-700), var(--flexoki-blue-500));
+}
+
+
+/*
+-------------------------------------
+  Tools
+-------------------------------------
+*/
+
+
+/* Geklaut bei Bootstrap */
+/*ul.downloads + section#license h2,*/
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within)
+{
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; /* Fix for https://github.com/twbs/bootstrap/issues/25686 */
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+
+/*  Fix for positioned table caption that could become anonymous cells*/
+  &:not(caption) { position: absolute !important; }
+}
+
+/*
+-------------------------------------
+  Layout + Typography
+-------------------------------------
+*/
+
+body > header,
+body > main,
+body > aside,
+body > footer {
+  padding: 2rem var(--side-padding);
+}
+
+body > header {
+  text-align: center;
+
+  p {
+    max-width: 50em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+body > footer {
+  display: flex;
+  gap: 2.3rem;
+  flex-direction: column;
+
+  font-weight: 300;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media(min-width: 40em) {
+  body > footer {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+
+
+
+
+h1, h2 {
+  margin: 1rem 0;
+}
+
+h1 { line-height: 1.4; }
+h1 div { font-size: 0.8em; }
+
+h2 { line-height: 1.3; }
+
+h2::first-letter,
+dd.monument-description::first-letter {
+  text-transform: uppercase;
+}
+
+
+
+
+/*
+-------------------------------------
+  Media
+-------------------------------------
+*/
+
+figure {
+  margin: 0 0 4rem;
+  overflow-x: hidden;
+  opacity: 1;
+}
+
+figure.toBeRemoved {
+  opacity: 0.05;
+  transition: opacity 0.3s ease-out;
+}
+
+
+figure img {
+  display: block;
+  width: 100%;
+
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--default-radius);
+  box-shadow: 0px 1px var(--default-radius) 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 1px var(--default-radius) -2px rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+
+
+/*
+-------------------------------------
+  Form Elements
+-------------------------------------
+*/
+
+
+label {
+  display: block;
+}
+
+select,
+input {
+  display: block;
+  line-height: 1;
+  border: var(--input-border);
+  border-radius: var(--default-radius);
+  height: 3em;
+  padding: 0.75rem 1rem;
+  background-color: var(--input-background);
+}
+
+select,
+input[type="search"]  {
+  width: 100%;
+}
+
+input[type="reset"] {
+  margin: auto;
+}
+
+input[type="reset"]:hover {
+  background-color: light-dark(var(--flexoki-blue-50), var(--flexoki-blue-200));
+}
+
+
+/*
+-------------------------------------
+  Gallery Filter
+-------------------------------------
+*/
+
+.gallery-filter {
+  margin: 0rem auto 5rem;
+  max-width: 50em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media(min-width: 40em) {
+  .gallery-filter {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  input[type="reset"] {
+    margin-right: 0;
+  }
+}
+
+.gallery-filter > * {
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+}
+
+.gallery-filter > *:last-child {
+  flex-grow: 0;
+}
+
+/*
+-------------------------------------
+  Gallery
+-------------------------------------
+*/
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;  /* Default: mobile - single column */
+  grid-gap: max(1.5rem, 3vw);
+  row-gap: 3rem;
+}
+
+@media (min-width: 580px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .gallery { grid-template-columns: repeat(3, 1fr); }}
+@media (min-width: 1280px) { .gallery { grid-template-columns: repeat(4, 1fr); }}
+
+:root.loading .gallery {
+  min-height: 100px;
+  background-image: url('spinner.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 4rem;
+}
+
+
+.gallery h2 {
+  margin-bottom: 0;
+}
+
+.gallery dl {
+
+  margin-top: 0;
+
+  dt:has(+dd:empty),
+  dt:has(+dd.monument-description),
+  dd:empty { display: none; }
+
+  dd {
+    margin-left: 0;
+    font-weight: 200;
+  }
+
+
+  dt {
+    margin-top: 0.5rem;
+  }
+
+  dd.monument-description + dt {
+    margin-top: 2rem;
+  }
+
+}
+
+/*
+Optinionated:
+Larger item description for elements which are
+NOT marked as "Alteintragung (Aktualisierung vorgesehen)"
+*/
+figure:not([data-monument-is-legacy="true"]) dd.monument-description {
+  margin: 1.8rem 0;
+  font-weight: initial;
+  font-size: 1.3em;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+.license {
+  position: relative;
+
+
+  img {
+    display: inline;
+    width: auto;
+    vertical-align: middle;
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    /* display: block; */
+    margin: 0px auto;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0 ;
+    }
+  }
+
+  a:link,
+  a:visited {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Kulturdenkmale in Schleswig-Holstein · Open Data Demo</title>
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Galerie: Kulturdenkmale in Schleswig-Holstein" />
+  <meta property="og:description" content="Demo-Galerie zur Anwendung von Open Data" />
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/index.css" />
+</head>
+<body>
+<header>
+    <h1>Demo-Galerie
+        <div>Kulturdenkmale in Schleswig-Holstein</div>
+    </h1>
+
+    <p>Datenquelle: Die Denkmallisten des Landesamts für Denkmalpflege Schleswig-Holstein im
+    <a target="blank" href="https://opendata.schleswig-holstein.de/organization/landesamt-fur-denkmalpflege">Open-Data-Portal</a>
+    Schleswig-Holstein sind lizenziert unter <a title="Creative Commons Namensnennung" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> Landesamt für Denkmalpflege Schleswig-Holstein.</p>
+</header>
+
+<main>
+
+    <form class="gallery-filter">
+        <div>
+            <label for="select-district">Landkreis oder Stadt:</label>
+            <select id="select-district" name="select-district">
+                <option selected value="https://opendata.schleswig-holstein.de/collection/denkmalliste-dithmarschen/aktuell.json">Kreis Dithmarschen</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-flensburg/aktuell.json">Stadt Flensburg</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-herzogtum-lauenburg/aktuell.json">Kreis Herzogtum Lauenburg</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-kiel/aktuell.json">Stadt Kiel</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-neumuenster/aktuell.json">Stadt Neumünster</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-nordfriesland/aktuell.json">Kreis Nordfriesland</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-ostholstein/aktuell.json">Kreis Ostholstein</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-pinneberg/aktuell.json">Kreis Pinneberg</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-ploen/aktuell.json">Kreis Plön</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-rendsburg-eckernfoerde/aktuell.json">Kreis Rendsburg-Eckernförde</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-schleswig-flensburg/aktuell.json">Kreis Schleswig-Flensburg</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-segeberg/aktuell.json">Kreis Segeberg</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-steinburg/aktuell.json">Kreis Steinburg</option>
+                <option value="https://opendata.schleswig-holstein.de/collection/denkmalliste-stormarn/aktuell.json">Kreis Stormarn</option>
+            </select>
+        </div>
+        <div>
+            <label for="filter-value">Suchen und filtern:</label>
+            <input type="search" list="filter-terms" id="filter-value" name="filter-value" placeholder="Denkmaltyp oder Gemeinde …"/>
+            <datalist id="filter-terms"></datalist>
+        </div>
+        <div>
+            <input type="reset" />
+        </div>
+    </form>
+
+    <div class="gallery"></div>
+
+</main>
+
+<footer>
+
+    <div id="license" aria-label="Lizenz-Informationen">
+        <h2 class="visually-hidden">Lizenz: CC-BY 4.0</h2>
+        <div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <div class="license">
+            <img src="/assets/cc.svg" alt="Icon für Creative Commons" title="Piktogramm für eine Creative Commons-Lizenz" width="48" height="48">
+            <img src="/assets/by.svg" alt="Icon für Namensnennung" title="Piktogramm für Lizenz mit Namensnennung" width="48" height="48"><br>
+            <a href="https://creativecommons.org/licenses/by/4.0/deed.de" title="Lizenztext anzeigen" target="_blank" rel="license noopener noreferrer">Creative Commons<br>Namensnennung 4.0 International</a>
+        </div>
+        </div>
+    </div>
+
+    <div id="acknowledgements" aria-label="Dank und Anerkennung">
+        <h2>Dankeschön</h2>
+        <ul>
+            <li><a target="blank" href="https://opendata.schleswig-holstein.de/organization/landesamt-fur-denkmalpflege">Landesamt für Denkmalpflege</a> Schleswig-Holstein für die Denkmaldaten</li>
+            <li><a target="blank" href="https://stephango.com/">Steph Ango</a> für die famose <a target="blank" href="https://stephango.com/flexoki">Flexoki</a> Farbpalette</li>
+        </ul>
+    </div>
+</footer>
+
+
+<template id="monument-template">
+    <figure id="" data-monument-type="" data-monument-municipality-name="">
+        <img class="monument-image" src="" alt="" title="" loading="lazy" />
+        <figcaption>
+            <h2 class="monument-title" title="JSON property: Bezeichnung"></h2>
+
+            <dl>
+                <dt class="visually-hidden">Kulturdenkmaltyp</dt><dd class="monument-type" title="JSON property: Kulturdenkmaltyp"></dd>
+                <dt>Beschreibung</dt><dd class="monument-description" title="JSON property: Beschreibung"></dd>
+                <dt>Lage</dt><dd class="monument-address" title="JSON property: Adresse-Lage und Kreis"></dd>
+                <dt>Schutzumfang</dt><dd class="monument-protection"></dd>
+                <dt>Begründung</dt><dd class="monument-reasons"></dd>
+                <dt>Objekt-Nummer</dt><dd class="monument-id"></dd>
+            </dl>
+
+        </figcaption>
+    </figure>
+</template>
+<script type="module">
+  import { MonumentsGallery } from '/assets/MonumentsGallery.js';
+
+  const gallery = new MonumentsGallery('.gallery', {
+    itemSelector: 'figure',
+    itemTemplateId: 'monument-template',
+  });
+
+  const selectDistrict = document.getElementById('select-district');
+  gallery.init(selectDistrict.value);
+
+  selectDistrict.addEventListener('change', (event) => {
+    gallery.init(event.target.value);
+  });
+
+</script>
+
+</body>
+</html>
