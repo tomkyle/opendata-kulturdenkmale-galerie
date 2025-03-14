@@ -36,20 +36,28 @@
 
 /*
 -------------------------------------
- Josh W Comeaus˚ s CSS Reset
- https://www.joshwcomeau.com/css/custom-css-reset/
+ CSS Resets
 -------------------------------------
 */
 
+/* Josh W Comeaus’ s CSS Reset: https://www.joshwcomeau.com/css/custom-css-reset/ */
 *, *::before, *::after { box-sizing: border-box; }
-* { margin: 0; }
+* { margin: 0; line-height: calc(1em + 0.5rem); }
 body { line-height: 1.5; -webkit-font-smoothing: antialiased;}
 img, picture, video, canvas, svg { display: block; max-width: 100%; }
 input, button, textarea, select { font: inherit; }
 p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
-p { text-wrap: pretty; }
+p, dd { text-wrap: pretty; }
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 #root, #__next { isolation: isolate; }
+/* Some of Andy Bell’ CSS rules:  https://piccalil.li/blog/a-more-modern-css-reset/ */
+:target { scroll-margin-block: 5ex; }
+html{
+  line-sizing: normal;
+     -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+          text-size-adjust: none;
+}
 
 
 
@@ -61,23 +69,17 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 
 
 body {
-    margin: 0;
     padding: 0;
 
     background-color: light-dark(var(--flexoki-paper), var(--flexoki-cyan-900));
     color: light-dark(var(--flexoki-cyan-900), var(--flexoki-paper));
 
     font-family: system-ui, sans-serif;
-    line-height: 1.5;
 }
 
 
-a {
-  color: light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
-}
-a:visited {
-  color: light-dark(var(--flexoki-blue-700), var(--flexoki-blue-500));
-}
+a         { color: light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300)); }
+a:visited { color: light-dark(var(--flexoki-blue-700), var(--flexoki-blue-500)); }
 
 
 /*
@@ -88,7 +90,6 @@ a:visited {
 
 
 /* Geklaut bei Bootstrap */
-/*ul.downloads + section#license h2,*/
 .visually-hidden,
 .visually-hidden-focusable:not(:focus):not(:focus-within)
 {
@@ -127,7 +128,10 @@ body > header {
     margin-right: auto;
   }
 
-  ul { margin-top: 2rem; }
+  ul {
+    margin-top: 2rem;
+    padding-left: 0;
+  }
   li { display: inline; }
   li + li::before { content: " • "; }
 
@@ -200,9 +204,7 @@ figure.toBeRemoved {
 
 
 figure img {
-  display: block;
   width: 100%;
-
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
@@ -317,14 +319,11 @@ input[type="reset"]:hover {
 
 .gallery dl {
 
-  margin-top: 0;
-
   dt:has(+dd:empty),
   dt:has(+dd.monument-description),
   dd:empty { display: none; }
 
   dd {
-    margin-left: 0;
     font-weight: 200;
   }
 
@@ -354,7 +353,11 @@ figure:not([data-monument-is-legacy="true"]) dd.monument-description {
 
 
 
-
+/*
+-------------------------------------
+  License block
+-------------------------------------
+*/
 
 .license {
   position: relative;
