@@ -306,10 +306,12 @@ input[type="reset"]:hover {
 
 :root.loading .gallery {
   min-height: 100px;
-  background-image: url('spinner.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 4rem;
+
+  background-color: currentColor;
+  mask: url('spinner.svg');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 4rem;
 }
 
 
