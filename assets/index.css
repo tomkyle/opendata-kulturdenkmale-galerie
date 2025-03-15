@@ -29,6 +29,9 @@
   --flexoki-blue-900:        #12253B;
   --flexoki-blue-950:        #101A24;
 
+  --foreground-color: light-dark(var(--flexoki-cyan-900), var(--flexoki-paper));
+  --background-color: light-dark(var(--flexoki-paper),    var(--flexoki-cyan-900));
+
   --input-background: background-color: light-dark(var(--flexoki-blue-50), var(--flexoki-blue-200));
   --input-border: 1px solid light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
 }
@@ -71,8 +74,8 @@ html{
 body {
     padding: 0;
 
-    background-color: light-dark(var(--flexoki-paper), var(--flexoki-cyan-900));
-    color: light-dark(var(--flexoki-cyan-900), var(--flexoki-paper));
+    background-color: var(--background-color);
+    color: var(--foreground-color);
 
     font-family: system-ui, sans-serif;
 }
