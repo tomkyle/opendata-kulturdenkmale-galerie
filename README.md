@@ -26,7 +26,6 @@ The monument lists (German: „Denkmallisten“) by the *Landesamt für Denkmalp
 
 The JSON files contains a single array of objects with properties as shown in the following table. 
 
-> **Some of these fields are not mandatory.** This means: If the absence of a value is to be displayed, the field is not marked with a `null` value, but is missing in the object.
 
 | Property         | Type       | Example                                                    | Required |
 | ---------------- | ---------- | ---------------------------------------------------------- | -------- |
@@ -40,6 +39,13 @@ The JSON files contains a single array of objects with properties as shown in th
 | Objektnummer     | `int`      | `42758`                                                    |          |
 | Kreis            | `string`   | `Stadt Neumünster`                                         |          |
 | FotoURL          | `string`   | `https://example.org/photo.jpg`                            | no       |
+
+## Working with the data
+
+> **Some of the JSON properties are not mandatory.** This means: If the *absence* of a value is to be displayed, the field is not marked with a `null` value, but is *missing* in the object.
+
+> **Caution with photo URLs:** Some objects provide URLs to photo resources which in fact do not exist. The server in these cases does not respond with `404 Not Found` but with `200 OK` instead, sending along a white image with black text *“kein Foto vorhanden”*.
+
 
 ## Development
 
