@@ -1,7 +1,7 @@
 # opendata-kulturdenkmale-galerie
-**Demo-Anwendung: Kulturdenkmale in Schleswig-Holstein, basierend auf dem Open-Data-Angebot des Landes Schleswig-Holstein.** 
+🇩🇪 **Demo-Anwendung: Kulturdenkmale in Schleswig-Holstein, basierend auf dem Open-Data-Angebot des Landes Schleswig-Holstein.** 
 
-Demo application: Cultural monuments gallery, based on Open Data published by German federal state Schleswig-Holstein.
+🇬🇧 Demo application: Cultural monuments gallery, based on Open Data published by German federal state Schleswig-Holstein.
 
 ## Data sources
 
