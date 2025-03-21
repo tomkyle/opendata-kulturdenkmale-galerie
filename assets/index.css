@@ -31,6 +31,7 @@
 
   --foreground-color: light-dark(var(--flexoki-cyan-900), var(--flexoki-paper));
   --background-color: light-dark(var(--flexoki-paper),    var(--flexoki-cyan-900));
+  --link-color:       light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
 
   --input-background: background-color: light-dark(var(--flexoki-blue-50), var(--flexoki-blue-200));
   --input-border: 1px solid light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
@@ -84,8 +85,8 @@ body {
 }
 
 
-a         { color: light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300)); }
-a:visited { color: light-dark(var(--flexoki-blue-700), var(--flexoki-blue-500)); }
+a         { color: var(--link-color); }
+a:visited { color: color-mix(in oklch, var(--link-color), black 20%); }
 
 
 /*
@@ -308,14 +309,10 @@ input[type="reset"]:hover {
 
 .gallery {
   display: grid;
-  grid-template-columns: 1fr;  /* Default: mobile - single column */
+  grid-template-columns: repeat( auto-fit, minmax(23ch, 1fr) );
   grid-gap: max(1.5rem, 3vw);
   row-gap: 3rem;
 }
-
-@media (min-width: 580px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 960px) { .gallery { grid-template-columns: repeat(3, 1fr); }}
-@media (min-width: 1280px) { .gallery { grid-template-columns: repeat(4, 1fr); }}
 
 :root.loading .gallery {
   min-height: 100px;
