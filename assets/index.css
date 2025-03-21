@@ -70,6 +70,9 @@ html{
 -------------------------------------
 */
 
+:root {
+    font-size: clamp(1em, 0.9em + 1vw, 1.25em);
+}
 
 body {
     padding: 0;
@@ -175,10 +178,17 @@ h1, h2 {
   margin: 1rem 0;
 }
 
-h1 { line-height: 1.4; }
-h1 div { font-size: 0.8em; }
+h1 {
+  font-size: 1.75em;
+  line-height: 1.4;
 
-h2 { line-height: 1.3; }
+  div { font-size: 0.8em; }
+}
+
+h2 {
+  font-size: 1.25em;
+  line-height: 1.25;
+}
 
 h2::first-letter,
 dd.monument-description::first-letter {
@@ -351,8 +361,9 @@ NOT marked as "Alteintragung (Aktualisierung vorgesehen)"
 figure:not([data-monument-is-legacy="true"]) dd.monument-description {
   margin: 1.8rem 0;
   font-weight: initial;
-  font-size: 1.3em;
+  font-size: 1.15em;
   line-height: 1.4;
+  hyphens: auto;
 }
 
 
