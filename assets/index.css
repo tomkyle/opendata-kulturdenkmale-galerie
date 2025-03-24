@@ -206,6 +206,8 @@ dd.monument-description::first-letter {
 */
 
 figure {
+  content-visibility: auto;
+
   margin: 0 0 4rem;
   overflow-x: hidden;
   opacity: 1;
@@ -315,7 +317,7 @@ input[type="reset"]:hover {
 }
 
 :root.loading .gallery {
-  min-height: 100px;
+  min-height: 30vh;
 
   background-color: currentColor;
   mask: url('spinner.svg');
