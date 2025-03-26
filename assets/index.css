@@ -207,6 +207,7 @@ dd.monument-description::first-letter {
 
 figure {
   content-visibility: auto;
+  contain-intrinsic-height: 1100px;
 
   margin: 0 0 4rem;
   overflow-x: hidden;
