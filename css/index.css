@@ -1,0 +1,384 @@
+@import "@tomkylenet/css-reset/dist/reset.css";
+
+
+/*
+-------------------------------------
+  Color schemes
+-------------------------------------
+*/
+:root {
+
+  --side-padding: max(2rem, calc((100% - 110em)/2));
+  --default-radius: 6px;
+
+  --flexoki-black:           #100F0F;
+  --flexoki-paper:           #FFFCF0;
+
+  --flexoki-cyan-900:        #122F2C;
+
+  --flexoki-blue-50:         #E1ECEB;
+  --flexoki-blue-100:        #C6DDE8;
+  --flexoki-blue-150:        #ABCFE2;
+  --flexoki-blue-200:        #92BFDB;
+  --flexoki-blue-300:        #66A0C8;
+  --flexoki-blue-400:        #4385BE;
+  --flexoki-blue-500:        #3171B2;
+  --flexoki-blue-600:        #205EA6;
+  --flexoki-blue-700:        #1A4F8C;
+  --flexoki-blue-800:        #163B66;
+  --flexoki-blue-850:        #133051;
+  --flexoki-blue-900:        #12253B;
+  --flexoki-blue-950:        #101A24;
+
+  --foreground-color: light-dark(var(--flexoki-cyan-900), var(--flexoki-paper));
+  --background-color: light-dark(var(--flexoki-paper),    var(--flexoki-cyan-900));
+  --link-color:       light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
+
+  --input-background: background-color: light-dark(var(--flexoki-blue-50), var(--flexoki-blue-200));
+  --input-border: 1px solid light-dark(var(--flexoki-blue-400), var(--flexoki-blue-300));
+}
+
+
+
+/*
+-------------------------------------
+ This Project
+-------------------------------------
+*/
+
+body {
+  padding: 0;
+
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
+
+
+a         { color: var(--link-color); }
+a:visited { color: color-mix(in oklch, var(--link-color), black 20%); }
+
+
+/*
+-------------------------------------
+  Tools
+-------------------------------------
+*/
+
+
+/* Geklaut bei Bootstrap */
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within)
+{
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; /* Fix for https://github.com/twbs/bootstrap/issues/25686 */
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+
+/*  Fix for positioned table caption that could become anonymous cells*/
+  &:not(caption) { position: absolute !important; }
+}
+
+/*
+-------------------------------------
+  Layout + Typography
+-------------------------------------
+*/
+
+body > header,
+body > main,
+body > aside,
+body > footer {
+  padding: 2rem var(--side-padding);
+}
+
+body > header {
+  text-align: center;
+
+  p {
+    max-width: 50em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ul {
+    margin-top: 2rem;
+    padding-left: 0;
+  }
+  li { display: inline; }
+  li + li::before { content: " • "; }
+
+  a {
+      font-weight: bold;
+  }
+}
+
+
+
+body > footer {
+  display: flex;
+  gap: 2.3rem;
+  flex-direction: column;
+
+  font-weight: 300;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media(min-width: 40em) {
+  body > footer {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+
+
+
+
+h1, h2 {
+  margin: 1rem 0;
+}
+
+h1 {
+  font-size: 1.75em;
+  line-height: 1.4;
+
+  div { font-size: 0.8em; }
+}
+
+h2 {
+  font-size: 1.25em;
+  line-height: 1.25;
+}
+
+h2::first-letter,
+dd.monument-description::first-letter {
+  text-transform: uppercase;
+}
+
+
+
+
+/*
+-------------------------------------
+  Media
+-------------------------------------
+*/
+
+figure {
+  content-visibility: auto;
+  contain-intrinsic-height: 1100px;
+
+  margin: 0 0 4rem;
+  overflow-x: hidden;
+  opacity: 1;
+}
+
+figure.toBeRemoved {
+  opacity: 0.05;
+  transition: opacity 0.3s ease-out;
+}
+
+
+figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--default-radius);
+  box-shadow: 0px 1px var(--default-radius) 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 1px var(--default-radius) -2px rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+
+
+/*
+-------------------------------------
+  Form Elements
+-------------------------------------
+*/
+
+
+label {
+  display: block;
+}
+
+select,
+input {
+  display: block;
+  line-height: 1;
+  border: var(--input-border);
+  border-radius: var(--default-radius);
+  height: 3em;
+  padding: 0.75rem 1rem;
+  background-color: var(--input-background);
+}
+
+select,
+input[type="search"]  {
+  width: 100%;
+}
+
+input[type="reset"] {
+  margin: auto;
+}
+
+input[type="reset"]:hover {
+  background-color: light-dark(var(--flexoki-blue-50), var(--flexoki-blue-200));
+}
+
+
+/*
+-------------------------------------
+  Gallery Filter
+-------------------------------------
+*/
+
+.gallery-filter {
+  margin: 0rem auto 5rem;
+  max-width: 50em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media(min-width: 40em) {
+  .gallery-filter {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  input[type="reset"] {
+    margin-right: 0;
+  }
+}
+
+.gallery-filter > * {
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+}
+
+.gallery-filter > *:last-child {
+  flex-grow: 0;
+}
+
+/*
+-------------------------------------
+  Gallery
+-------------------------------------
+*/
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(23ch, 1fr) );
+  grid-gap: max(1.5rem, 3vw);
+  row-gap: 3rem;
+}
+
+:root.loading .gallery {
+  min-height: 30vh;
+
+  background-color: currentColor;
+  mask: url('spinner.svg');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 4rem;
+}
+
+
+.gallery h2 {
+  margin-bottom: 0;
+}
+
+.gallery dl {
+
+  dt:has(+dd:empty),
+  dt:has(+dd.monument-description),
+  dd:empty { display: none; }
+
+  dd {
+    font-weight: 200;
+  }
+
+
+  dt {
+    margin-top: 0.5rem;
+  }
+
+  dd.monument-description + dt {
+    margin-top: 2rem;
+  }
+
+}
+
+/*
+Optinionated:
+Larger item description for elements which are
+NOT marked as "Alteintragung (Aktualisierung vorgesehen)"
+*/
+figure:not([data-monument-is-legacy="true"]) dd.monument-description {
+  margin: 1.8rem 0;
+  font-weight: initial;
+  font-size: 1.15em;
+  line-height: 1.4;
+  hyphens: auto;
+}
+
+
+
+
+/*
+-------------------------------------
+  License block
+-------------------------------------
+*/
+
+.license {
+  position: relative;
+
+
+  img {
+    display: inline;
+    width: auto;
+    vertical-align: middle;
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    /* display: block; */
+    margin: 0px auto;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0 ;
+    }
+  }
+
+  a:link,
+  a:visited {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    text-decoration: underline;
+  }
+}

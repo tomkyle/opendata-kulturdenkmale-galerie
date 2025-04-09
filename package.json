@@ -1,0 +1,19 @@
+{
+  "name": "opendata-kulturdenkmale-galerie",
+  "description": "Demo-Galerie mit Kulturdenkmalen aus Schleswig-Holstein auf der Basis von Open Data",
+  "author": "Carsten Witt <tomkyle@posteo.de>",
+  "homepage": "https://tomkyle.github.io/opendata-kulturdenkmale-galerie/",
+  "license": "CC-BY 4.0",
+  "devDependencies": {
+    "@tomkylenet/css-reset": "^1.0.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.0"
+  },
+  "scripts": {
+    "watch": "npx postcss --watch --dir assets css/*.css",
+    "build": "npx postcss --dir assets css/*.css",
+    "prepublishOnly": "npm run build"
+  }
+}

@@ -46,14 +46,15 @@ The JSON files contains a single array of objects with properties as shown in th
 
 > **Caution with photo URLs:** Some objects provide URLs to photo resources which in fact do not exist. The server in these cases does not respond with `404 Not Found` but with `200 OK` instead, sending along a white image with black text *“kein Foto vorhanden”*.
 
-
 ## Development
 
 1. Clone repo. 
 2. Start a small web server: [http://localhost:8020/](http://localhost:8020/)
+3. Watch changes in `css/index.css` to build `assets/index.css` with *postcss*:
 
 ```bash
 $ php -S localhost:8020
+$ npm run watch
 ```
 
 ## Acknowledgements
